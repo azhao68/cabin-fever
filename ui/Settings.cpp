@@ -27,18 +27,17 @@ void Settings::loadSettingsOrDefaults() {
     // Set the default values below
     QSettings s("cabin-fever", "cabin-fever");
 
-    // Brush
+    // Snow
     snowRate = s.value("snowRate", 1).toDouble();
     snowSize = s.value("snowSize", 1).toDouble();
-
 }
 
 void Settings::saveSettings() {
     QSettings s("cabin-fever", "cabin-fever");
 
+    // Snow
     s.setValue("snowRate", snowRate);
     s.setValue("snowSize", snowSize);
-
 
     //s.setValue("currentTab", currentTab);
 }

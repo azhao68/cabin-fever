@@ -24,18 +24,74 @@ win32 {
 SOURCES += ui/mainwindow.cpp \
     main.cpp \
     glew-1.10.0/src/glew.c \
+    ui/SupportCanvas3D.cpp \
     ui/view.cpp \
     ui/viewformat.cpp \
     ui/Databinding.cpp \
-    ui/Settings.cpp
+    ui/Settings.cpp \
+    scenegraph/ImplicitShape.cpp \
+    scenegraph/OpenGLScene.cpp \
+    scenegraph/SceneviewScene.cpp \
+    shapes/CircleBase.cpp \
+    shapes/Cone.cpp \
+    shapes/Cube.cpp \
+    shapes/Cylinder.cpp \
+    shapes/OpenGLShape.cpp \
+    shapes/Sphere.cpp \
+    lib/RGBA.cpp \
+    lib/ResourceLoader.cpp \
+    gl/shaders/Shader.cpp \
+    gl/GLDebug.cpp \
+    gl/datatype/VBOAttribMarker.cpp \
+    gl/datatype/VBO.cpp \
+    gl/datatype/IBO.cpp \
+    gl/datatype/VAO.cpp \
+    gl/datatype/FBO.cpp \
+    gl/textures/Texture.cpp \
+    gl/textures/Texture2D.cpp \
+    gl/textures/TextureParameters.cpp \
+    gl/textures/TextureParametersBuilder.cpp \
+    gl/textures/RenderBuffer.cpp \
+    gl/textures/DepthBuffer.cpp \
+    gl/shaders/CS123Shader.cpp \
+    gl/util/FullScreenQuad.cpp
 
 HEADERS += ui/mainwindow.h \
+    ui/SupportCanvas3D.h \
     ui_mainwindow.h \
     glew-1.10.0/include/GL/glew.h \
     ui/view.h \
     ui/viewformat.h \
     ui/Databinding.h \
-    ui/Settings.h
+    ui/Settings.h \
+    scenegraph/ImplicitShape.h \
+    scenegraph/OpenGLScene.h \
+    scenegraph/SceneviewScene.h \
+    shapes/CircleBase.h \
+    shapes/Cone.h \
+    shapes/Cube.h \
+    shapes/Cylinder.h \
+    shapes/OpenGLShape.h \
+    shapes/Sphere.h \
+    gl/shaders/Shader.h \
+    gl/GLDebug.h \
+    gl/shaders/ShaderAttribLocations.h \
+    gl/datatype/VBOAttribMarker.h \
+    gl/datatype/VBO.h \
+    gl/datatype/IBO.h \
+    gl/datatype/VAO.h \
+    gl/datatype/FBO.h \
+    gl/textures/Texture.h \
+    gl/textures/Texture2D.h \
+    gl/textures/TextureParameters.h \
+    gl/textures/TextureParametersBuilder.h \
+    gl/textures/RenderBuffer.h \
+    gl/textures/DepthBuffer.h \
+    gl/shaders/CS123Shader.h \
+    gl/util/FullScreenQuad.h \
+    lib/RGBA.h \
+    lib/ResourceLoader.h \
+    lib/CS123SceneData.h
 
 FORMS += ui/mainwindow.ui
 INCLUDEPATH += glm ui glew-1.10.0/include

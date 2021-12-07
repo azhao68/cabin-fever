@@ -9,8 +9,19 @@
 #define SETTINGS_H
 
 #include <QObject>
-//#include "RGBA.h"
+#include "lib/RGBA.h"
 
+// Enumeration values for the Shapes that the user can select in the GUI.
+enum ShapeType {
+    SHAPE_CUBE,
+    SHAPE_CONE,
+    SHAPE_SPHERE,
+    SHAPE_CYLINDER,
+    SHAPE_TORUS,
+    SHAPE_SPECIAL_1,
+    SHAPE_SPECIAL_2,
+    NUM_SHAPE_TYPES
+};
 
 /**
  * @struct Settings
@@ -29,6 +40,7 @@ struct Settings {
     // Saves the current settings to disk.
     void saveSettings();
 
+    // Snow
     float snowRate;
     float snowSize;
 };

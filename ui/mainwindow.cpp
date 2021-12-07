@@ -5,6 +5,8 @@
 #include "Databinding.h"
 #include "Settings.h"
 #include <QSettings>
+#include <QFileDialog>
+#include <QMessageBox>
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -12,13 +14,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     settings.loadSettingsOrDefaults();
+    QGLFormat qglFormat;
+    qglFormat.setVersion(4, 3);
+    qglFormat.setProfile(QGLFormat::CoreProfile);
+    qglFormat.setSampleBuffers(true);
     ui->setupUi(this);
+    m_canvas3D = new SupportCanvas3D(qglFormat, this);
     QSettings qtSettings("cabin-fever", "cabin-fever");
     dataBind();
 }
 
 void MainWindow::dataBind() {
-    // Brush dock
+    // Snow dock
 #define BIND(b) { \
     DataBinding *_b = (b); \
     m_bindings.push_back(_b); \
@@ -31,7 +38,7 @@ void MainWindow::dataBind() {
 
 #undef BIND
 
-    // make sure the aspect ratio updates when m_canvas3D changes size
+   // make sure the aspect ratio updates when m_canvas3D changes size
    // connect(m_canvas3D, SIGNAL(aspectRatioChanged()), this, SLOT(updateAspectRatio()));
 }
 
@@ -44,5 +51,4 @@ MainWindow::~MainWindow()
 
 void MainWindow::settingsChanged() {
     std::cout << "settings changed" << std::endl;
-    //ui->canvas2D->settingsChanged();
 }
