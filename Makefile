@@ -61,9 +61,9 @@ SOURCES       = ui/mainwindow.cpp \
 		ui/Databinding.cpp \
 		ui/Settings.cpp \
 		scenegraph/ImplicitShape.cpp \
-		scenegraph/Scene.cpp \
 		scenegraph/OpenGLScene.cpp \
 		scenegraph/SceneviewScene.cpp \
+		scenegraph/Scene.cpp \
 		shapes/CircleBase.cpp \
 		shapes/Cone.cpp \
 		shapes/Cube.cpp \
@@ -100,9 +100,9 @@ OBJECTS       = mainwindow.o \
 		Databinding.o \
 		Settings.o \
 		ImplicitShape.o \
-		Scene.o \
 		OpenGLScene.o \
 		SceneviewScene.o \
+		Scene.o \
 		CircleBase.o \
 		Cone.o \
 		Cube.o \
@@ -323,9 +323,9 @@ DIST          = shaders/normals/normals.vert \
 		ui/Databinding.h \
 		ui/Settings.h \
 		scenegraph/ImplicitShape.h \
-		scenegraph/Scene.h \
 		scenegraph/OpenGLScene.h \
 		scenegraph/SceneviewScene.h \
+		scenegraph/Scene.h \
 		shapes/CircleBase.h \
 		shapes/Cone.h \
 		shapes/Cube.h \
@@ -359,9 +359,9 @@ DIST          = shaders/normals/normals.vert \
 		ui/Databinding.cpp \
 		ui/Settings.cpp \
 		scenegraph/ImplicitShape.cpp \
-		scenegraph/Scene.cpp \
 		scenegraph/OpenGLScene.cpp \
 		scenegraph/SceneviewScene.cpp \
+		scenegraph/Scene.cpp \
 		shapes/CircleBase.cpp \
 		shapes/Cone.cpp \
 		shapes/Cube.cpp \
@@ -807,8 +807,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ui/mainwindow.h ui/SupportCanvas3D.h ui_mainwindow.h glew-1.10.0/include/GL/glew.h ui/view.h ui/viewformat.h ui/Databinding.h ui/Settings.h scenegraph/ImplicitShape.h scenegraph/Scene.h scenegraph/OpenGLScene.h scenegraph/SceneviewScene.h shapes/CircleBase.h shapes/Cone.h shapes/Cube.h shapes/Cylinder.h shapes/OpenGLShape.h shapes/Sphere.h gl/shaders/Shader.h gl/GLDebug.h gl/shaders/ShaderAttribLocations.h gl/datatype/VBOAttribMarker.h gl/datatype/VBO.h gl/datatype/IBO.h gl/datatype/VAO.h gl/datatype/FBO.h gl/textures/Texture.h gl/textures/Texture2D.h gl/textures/TextureParameters.h gl/textures/TextureParametersBuilder.h gl/textures/RenderBuffer.h gl/textures/DepthBuffer.h gl/shaders/CS123Shader.h gl/util/FullScreenQuad.h lib/RGBA.h lib/ResourceLoader.h lib/CS123SceneData.h $(DISTDIR)/
-	$(COPY_FILE) --parents ui/mainwindow.cpp main.cpp glew-1.10.0/src/glew.c ui/SupportCanvas3D.cpp ui/view.cpp ui/viewformat.cpp ui/Databinding.cpp ui/Settings.cpp scenegraph/ImplicitShape.cpp scenegraph/Scene.cpp scenegraph/OpenGLScene.cpp scenegraph/SceneviewScene.cpp shapes/CircleBase.cpp shapes/Cone.cpp shapes/Cube.cpp shapes/Cylinder.cpp shapes/OpenGLShape.cpp shapes/Sphere.cpp lib/RGBA.cpp lib/ResourceLoader.cpp gl/shaders/Shader.cpp gl/GLDebug.cpp gl/datatype/VBOAttribMarker.cpp gl/datatype/VBO.cpp gl/datatype/IBO.cpp gl/datatype/VAO.cpp gl/datatype/FBO.cpp gl/textures/Texture.cpp gl/textures/Texture2D.cpp gl/textures/TextureParameters.cpp gl/textures/TextureParametersBuilder.cpp gl/textures/RenderBuffer.cpp gl/textures/DepthBuffer.cpp gl/shaders/CS123Shader.cpp gl/util/FullScreenQuad.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ui/mainwindow.h ui/SupportCanvas3D.h ui_mainwindow.h glew-1.10.0/include/GL/glew.h ui/view.h ui/viewformat.h ui/Databinding.h ui/Settings.h scenegraph/ImplicitShape.h scenegraph/OpenGLScene.h scenegraph/SceneviewScene.h scenegraph/Scene.h shapes/CircleBase.h shapes/Cone.h shapes/Cube.h shapes/Cylinder.h shapes/OpenGLShape.h shapes/Sphere.h gl/shaders/Shader.h gl/GLDebug.h gl/shaders/ShaderAttribLocations.h gl/datatype/VBOAttribMarker.h gl/datatype/VBO.h gl/datatype/IBO.h gl/datatype/VAO.h gl/datatype/FBO.h gl/textures/Texture.h gl/textures/Texture2D.h gl/textures/TextureParameters.h gl/textures/TextureParametersBuilder.h gl/textures/RenderBuffer.h gl/textures/DepthBuffer.h gl/shaders/CS123Shader.h gl/util/FullScreenQuad.h lib/RGBA.h lib/ResourceLoader.h lib/CS123SceneData.h $(DISTDIR)/
+	$(COPY_FILE) --parents ui/mainwindow.cpp main.cpp glew-1.10.0/src/glew.c ui/SupportCanvas3D.cpp ui/view.cpp ui/viewformat.cpp ui/Databinding.cpp ui/Settings.cpp scenegraph/ImplicitShape.cpp scenegraph/OpenGLScene.cpp scenegraph/SceneviewScene.cpp scenegraph/Scene.cpp shapes/CircleBase.cpp shapes/Cone.cpp shapes/Cube.cpp shapes/Cylinder.cpp shapes/OpenGLShape.cpp shapes/Sphere.cpp lib/RGBA.cpp lib/ResourceLoader.cpp gl/shaders/Shader.cpp gl/GLDebug.cpp gl/datatype/VBOAttribMarker.cpp gl/datatype/VBO.cpp gl/datatype/IBO.cpp gl/datatype/VAO.cpp gl/datatype/FBO.cpp gl/textures/Texture.cpp gl/textures/Texture2D.cpp gl/textures/TextureParameters.cpp gl/textures/TextureParametersBuilder.cpp gl/textures/RenderBuffer.cpp gl/textures/DepthBuffer.cpp gl/shaders/CS123Shader.cpp gl/util/FullScreenQuad.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ui/mainwindow.ui $(DISTDIR)/
 
 
@@ -1545,91 +1545,6 @@ ImplicitShape.o: scenegraph/ImplicitShape.cpp scenegraph/ImplicitShape.h \
 		glew-1.10.0/include/GL/glew.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ImplicitShape.o scenegraph/ImplicitShape.cpp
 
-Scene.o: scenegraph/Scene.cpp scenegraph/Scene.h \
-		lib/CS123SceneData.h \
-		glm/glm.hpp \
-		glm/detail/_fixes.hpp \
-		glm/fwd.hpp \
-		glm/detail/type_int.hpp \
-		glm/detail/setup.hpp \
-		glm/detail/type_float.hpp \
-		glm/detail/type_vec.hpp \
-		glm/detail/precision.hpp \
-		glm/detail/type_mat.hpp \
-		glm/vec2.hpp \
-		glm/detail/type_vec2.hpp \
-		glm/detail/_swizzle.hpp \
-		glm/detail/_swizzle_func.hpp \
-		glm/detail/type_vec2.inl \
-		glm/vec3.hpp \
-		glm/detail/type_vec3.hpp \
-		glm/detail/type_vec3.inl \
-		glm/vec4.hpp \
-		glm/detail/type_vec4.hpp \
-		glm/detail/type_vec4.inl \
-		glm/mat2x2.hpp \
-		glm/detail/type_mat2x2.hpp \
-		glm/detail/type_mat2x2.inl \
-		glm/mat2x3.hpp \
-		glm/detail/type_mat2x3.hpp \
-		glm/detail/type_mat2x3.inl \
-		glm/mat2x4.hpp \
-		glm/detail/type_mat2x4.hpp \
-		glm/detail/type_mat2x4.inl \
-		glm/mat3x2.hpp \
-		glm/detail/type_mat3x2.hpp \
-		glm/detail/type_mat3x2.inl \
-		glm/mat3x3.hpp \
-		glm/detail/type_mat3x3.hpp \
-		glm/detail/type_mat3x3.inl \
-		glm/mat3x4.hpp \
-		glm/detail/type_mat3x4.hpp \
-		glm/detail/type_mat3x4.inl \
-		glm/mat4x2.hpp \
-		glm/detail/type_mat4x2.hpp \
-		glm/detail/type_mat4x2.inl \
-		glm/mat4x3.hpp \
-		glm/detail/type_mat4x3.hpp \
-		glm/detail/type_mat4x3.inl \
-		glm/mat4x4.hpp \
-		glm/detail/type_mat4x4.hpp \
-		glm/detail/type_mat4x4.inl \
-		glm/trigonometric.hpp \
-		glm/detail/func_trigonometric.hpp \
-		glm/detail/func_trigonometric.inl \
-		glm/detail/_vectorize.hpp \
-		glm/detail/type_vec1.hpp \
-		glm/detail/type_vec1.inl \
-		glm/exponential.hpp \
-		glm/detail/func_exponential.hpp \
-		glm/detail/func_exponential.inl \
-		glm/detail/func_vector_relational.hpp \
-		glm/detail/func_vector_relational.inl \
-		glm/common.hpp \
-		glm/detail/func_common.hpp \
-		glm/detail/func_common.inl \
-		glm/packing.hpp \
-		glm/detail/func_packing.hpp \
-		glm/detail/func_packing.inl \
-		glm/detail/type_half.hpp \
-		glm/detail/type_half.inl \
-		glm/geometric.hpp \
-		glm/detail/func_geometric.hpp \
-		glm/detail/func_geometric.inl \
-		glm/matrix.hpp \
-		glm/detail/func_matrix.hpp \
-		glm/detail/func_matrix.inl \
-		glm/vector_relational.hpp \
-		glm/integer.hpp \
-		glm/detail/func_integer.hpp \
-		glm/detail/func_integer.inl \
-		scenegraph/ImplicitShape.h \
-		glm/gtx/transform.hpp \
-		glm/gtc/matrix_transform.hpp \
-		glm/gtc/matrix_transform.inl \
-		glm/gtx/transform.inl
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Scene.o scenegraph/Scene.cpp
-
 OpenGLScene.o: scenegraph/OpenGLScene.cpp scenegraph/OpenGLScene.h \
 		scenegraph/Scene.h \
 		lib/CS123SceneData.h \
@@ -1816,6 +1731,91 @@ SceneviewScene.o: scenegraph/SceneviewScene.cpp scenegraph/SceneviewScene.h \
 		gl/shaders/CS123Shader.h \
 		gl/shaders/Shader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SceneviewScene.o scenegraph/SceneviewScene.cpp
+
+Scene.o: scenegraph/Scene.cpp scenegraph/Scene.h \
+		lib/CS123SceneData.h \
+		glm/glm.hpp \
+		glm/detail/_fixes.hpp \
+		glm/fwd.hpp \
+		glm/detail/type_int.hpp \
+		glm/detail/setup.hpp \
+		glm/detail/type_float.hpp \
+		glm/detail/type_vec.hpp \
+		glm/detail/precision.hpp \
+		glm/detail/type_mat.hpp \
+		glm/vec2.hpp \
+		glm/detail/type_vec2.hpp \
+		glm/detail/_swizzle.hpp \
+		glm/detail/_swizzle_func.hpp \
+		glm/detail/type_vec2.inl \
+		glm/vec3.hpp \
+		glm/detail/type_vec3.hpp \
+		glm/detail/type_vec3.inl \
+		glm/vec4.hpp \
+		glm/detail/type_vec4.hpp \
+		glm/detail/type_vec4.inl \
+		glm/mat2x2.hpp \
+		glm/detail/type_mat2x2.hpp \
+		glm/detail/type_mat2x2.inl \
+		glm/mat2x3.hpp \
+		glm/detail/type_mat2x3.hpp \
+		glm/detail/type_mat2x3.inl \
+		glm/mat2x4.hpp \
+		glm/detail/type_mat2x4.hpp \
+		glm/detail/type_mat2x4.inl \
+		glm/mat3x2.hpp \
+		glm/detail/type_mat3x2.hpp \
+		glm/detail/type_mat3x2.inl \
+		glm/mat3x3.hpp \
+		glm/detail/type_mat3x3.hpp \
+		glm/detail/type_mat3x3.inl \
+		glm/mat3x4.hpp \
+		glm/detail/type_mat3x4.hpp \
+		glm/detail/type_mat3x4.inl \
+		glm/mat4x2.hpp \
+		glm/detail/type_mat4x2.hpp \
+		glm/detail/type_mat4x2.inl \
+		glm/mat4x3.hpp \
+		glm/detail/type_mat4x3.hpp \
+		glm/detail/type_mat4x3.inl \
+		glm/mat4x4.hpp \
+		glm/detail/type_mat4x4.hpp \
+		glm/detail/type_mat4x4.inl \
+		glm/trigonometric.hpp \
+		glm/detail/func_trigonometric.hpp \
+		glm/detail/func_trigonometric.inl \
+		glm/detail/_vectorize.hpp \
+		glm/detail/type_vec1.hpp \
+		glm/detail/type_vec1.inl \
+		glm/exponential.hpp \
+		glm/detail/func_exponential.hpp \
+		glm/detail/func_exponential.inl \
+		glm/detail/func_vector_relational.hpp \
+		glm/detail/func_vector_relational.inl \
+		glm/common.hpp \
+		glm/detail/func_common.hpp \
+		glm/detail/func_common.inl \
+		glm/packing.hpp \
+		glm/detail/func_packing.hpp \
+		glm/detail/func_packing.inl \
+		glm/detail/type_half.hpp \
+		glm/detail/type_half.inl \
+		glm/geometric.hpp \
+		glm/detail/func_geometric.hpp \
+		glm/detail/func_geometric.inl \
+		glm/matrix.hpp \
+		glm/detail/func_matrix.hpp \
+		glm/detail/func_matrix.inl \
+		glm/vector_relational.hpp \
+		glm/integer.hpp \
+		glm/detail/func_integer.hpp \
+		glm/detail/func_integer.inl \
+		scenegraph/ImplicitShape.h \
+		glm/gtx/transform.hpp \
+		glm/gtc/matrix_transform.hpp \
+		glm/gtc/matrix_transform.inl \
+		glm/gtx/transform.inl
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Scene.o scenegraph/Scene.cpp
 
 CircleBase.o: shapes/CircleBase.cpp shapes/CircleBase.h \
 		shapes/OpenGLShape.h \
