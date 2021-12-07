@@ -17,6 +17,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QWidget>
 #include "view.h"
@@ -41,6 +42,7 @@ public:
     QLabel *snowRateLabel;
     QLineEdit *snowRateTextbox;
     QSlider *snowRateSlider;
+    QPushButton *snowballButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -129,12 +131,16 @@ public:
 
         gridLayout_7->addWidget(snowRateSlider, 0, 1, 1, 1);
 
+        snowballButton = new QPushButton(dockWidgetContents);
+        snowballButton->setObjectName(QString::fromUtf8("snowballButton"));
+        snowballButton->setGeometry(QRect(60, 90, 141, 32));
         dockWidget->setWidget(dockWidgetContents);
         MainWindow->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
 
         retranslateUi(MainWindow);
 
         QMetaObject::connectSlotsByName(MainWindow);
+        QObject::connect(snowballButton, SIGNAL(clicked()), MainWindow, SLOT(throwSnowball()));
     } // setupUi
 
     void retranslateUi(QMainWindow *MainWindow)
@@ -144,6 +150,7 @@ public:
         snowSizeTextbox->setText(QString());
         snowRateLabel->setText(QCoreApplication::translate("MainWindow", "Snow Rate", nullptr));
         snowRateTextbox->setText(QString());
+        snowballButton->setText(QCoreApplication::translate("MainWindow", "Throw Snowball", nullptr));
     } // retranslateUi
 
 };

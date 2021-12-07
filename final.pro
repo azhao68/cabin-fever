@@ -33,7 +33,6 @@ SOURCES += ui/mainwindow.cpp \
     scenegraph/OpenGLScene.cpp \
     scenegraph/Scene.cpp \
     scenegraph/SceneviewScene.cpp \
-    scenegraph/Scene.cpp \
     shapes/CircleBase.cpp \
     shapes/Cone.cpp \
     shapes/Cube.cpp \

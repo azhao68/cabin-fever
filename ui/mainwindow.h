@@ -33,6 +33,7 @@ private:
 
 public slots:
     void settingsChanged();
+    void throwSnowball();
 };
 
 #endif // MAINWINDOW_H

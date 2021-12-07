@@ -35,6 +35,7 @@ void MainWindow::dataBind() {
         ui->snowRateSlider, ui->snowRateTextbox, settings.snowRate, 0.f, 50.f))
     BIND(FloatBinding::bindSliderAndTextbox(
         ui->snowSizeSlider, ui->snowSizeTextbox, settings.snowSize, 0.f, 50.f))
+//    BIND(BoolBinding::bind(ui->brushAlphaBlendingCheckbox, settings.fixAlphaBlending))
 
 #undef BIND
 
@@ -51,4 +52,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::settingsChanged() {
     std::cout << "settings changed" << std::endl;
+}
+
+void MainWindow::throwSnowball() {
+    std::cout << "throw Snowball" << std::endl;
 }
