@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.14.2
+** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -33,14 +33,14 @@ public:
     QWidget *dockWidgetContents;
     QWidget *snowSize;
     QGridLayout *gridLayout_6;
+    QLabel *snowSizeLabel;
     QLineEdit *snowSizeTextbox;
     QSlider *snowSizeSlider;
-    QLabel *snowSizeLabel;
     QWidget *snowRate;
     QGridLayout *gridLayout_7;
+    QLabel *snowRateLabel;
     QLineEdit *snowRateTextbox;
     QSlider *snowRateSlider;
-    QLabel *snowRateLabel;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -62,6 +62,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         dockWidget = new QDockWidget(MainWindow);
         dockWidget->setObjectName(QString::fromUtf8("dockWidget"));
+        dockWidget->setMinimumSize(QSize(250, 39));
         dockWidgetContents = new QWidget();
         dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
         snowSize = new QWidget(dockWidgetContents);
@@ -72,6 +73,15 @@ public:
         gridLayout_6->setContentsMargins(11, 11, 11, 11);
         gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
         gridLayout_6->setContentsMargins(0, 0, 0, 0);
+        snowSizeLabel = new QLabel(snowSize);
+        snowSizeLabel->setObjectName(QString::fromUtf8("snowSizeLabel"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Almonte Snow"));
+        font.setPointSize(12);
+        snowSizeLabel->setFont(font);
+
+        gridLayout_6->addWidget(snowSizeLabel, 0, 0, 1, 1);
+
         snowSizeTextbox = new QLineEdit(snowSize);
         snowSizeTextbox->setObjectName(QString::fromUtf8("snowSizeTextbox"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
@@ -79,22 +89,16 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(snowSizeTextbox->sizePolicy().hasHeightForWidth());
         snowSizeTextbox->setSizePolicy(sizePolicy);
-        snowSizeTextbox->setMinimumSize(QSize(40, 0));
+        snowSizeTextbox->setMinimumSize(QSize(55, 0));
         snowSizeTextbox->setMaximumSize(QSize(40, 16777215));
 
         gridLayout_6->addWidget(snowSizeTextbox, 0, 3, 1, 1);
 
         snowSizeSlider = new QSlider(snowSize);
         snowSizeSlider->setObjectName(QString::fromUtf8("snowSizeSlider"));
-        snowSizeSlider->setMinimumSize(QSize(100, 0));
         snowSizeSlider->setOrientation(Qt::Horizontal);
 
         gridLayout_6->addWidget(snowSizeSlider, 0, 2, 1, 1);
-
-        snowSizeLabel = new QLabel(snowSize);
-        snowSizeLabel->setObjectName(QString::fromUtf8("snowSizeLabel"));
-
-        gridLayout_6->addWidget(snowSizeLabel, 0, 0, 1, 1);
 
         snowRate = new QWidget(dockWidgetContents);
         snowRate->setObjectName(QString::fromUtf8("snowRate"));
@@ -104,26 +108,26 @@ public:
         gridLayout_7->setContentsMargins(11, 11, 11, 11);
         gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
         gridLayout_7->setContentsMargins(0, 0, 0, 0);
+        snowRateLabel = new QLabel(snowRate);
+        snowRateLabel->setObjectName(QString::fromUtf8("snowRateLabel"));
+        snowRateLabel->setFont(font);
+
+        gridLayout_7->addWidget(snowRateLabel, 0, 0, 1, 1);
+
         snowRateTextbox = new QLineEdit(snowRate);
         snowRateTextbox->setObjectName(QString::fromUtf8("snowRateTextbox"));
         sizePolicy.setHeightForWidth(snowRateTextbox->sizePolicy().hasHeightForWidth());
         snowRateTextbox->setSizePolicy(sizePolicy);
-        snowRateTextbox->setMinimumSize(QSize(40, 0));
+        snowRateTextbox->setMinimumSize(QSize(55, 0));
         snowRateTextbox->setMaximumSize(QSize(40, 16777215));
 
         gridLayout_7->addWidget(snowRateTextbox, 0, 3, 1, 1);
 
         snowRateSlider = new QSlider(snowRate);
         snowRateSlider->setObjectName(QString::fromUtf8("snowRateSlider"));
-        snowRateSlider->setMinimumSize(QSize(100, 0));
         snowRateSlider->setOrientation(Qt::Horizontal);
 
-        gridLayout_7->addWidget(snowRateSlider, 0, 2, 1, 1);
-
-        snowRateLabel = new QLabel(snowRate);
-        snowRateLabel->setObjectName(QString::fromUtf8("snowRateLabel"));
-
-        gridLayout_7->addWidget(snowRateLabel, 0, 0, 1, 1);
+        gridLayout_7->addWidget(snowRateSlider, 0, 1, 1, 1);
 
         dockWidget->setWidget(dockWidgetContents);
         MainWindow->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
@@ -136,10 +140,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "A CS123 Final", nullptr));
-        snowSizeTextbox->setText(QString());
         snowSizeLabel->setText(QCoreApplication::translate("MainWindow", "Snow Size", nullptr));
-        snowRateTextbox->setText(QString());
+        snowSizeTextbox->setText(QString());
         snowRateLabel->setText(QCoreApplication::translate("MainWindow", "Snow Rate", nullptr));
+        snowRateTextbox->setText(QString());
     } // retranslateUi
 
 };

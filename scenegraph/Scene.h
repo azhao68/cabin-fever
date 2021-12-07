@@ -47,8 +47,8 @@ protected:
 
     CS123SceneGlobalData m_global;
     std::vector<CS123SceneLightData> m_lights;
-    std::vector<const CS123ScenePrimitive> m_primitives;
-    std::vector<const glm::mat4x4> m_transformations;
+    std::vector<CS123ScenePrimitive> m_primitives;
+    std::vector<glm::mat4x4> m_transformations;
 
 };
 

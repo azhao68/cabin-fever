@@ -31,6 +31,7 @@ SOURCES += ui/mainwindow.cpp \
     ui/Settings.cpp \
     scenegraph/ImplicitShape.cpp \
     scenegraph/OpenGLScene.cpp \
+    scenegraph/Scene.cpp \
     scenegraph/SceneviewScene.cpp \
     shapes/CircleBase.cpp \
     shapes/Cone.cpp \
@@ -66,6 +67,7 @@ HEADERS += ui/mainwindow.h \
     ui/Settings.h \
     scenegraph/ImplicitShape.h \
     scenegraph/OpenGLScene.h \
+    scenegraph/Scene.h \
     scenegraph/SceneviewScene.h \
     shapes/CircleBase.h \
     shapes/Cone.h \

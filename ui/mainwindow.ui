@@ -33,6 +33,12 @@
    </layout>
   </widget>
   <widget class="QDockWidget" name="dockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>250</width>
+     <height>39</height>
+    </size>
+   </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
@@ -59,6 +65,19 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="snowSizeLabel">
+        <property name="font">
+         <font>
+          <family>Almonte Snow</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Snow Size</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="3">
        <widget class="QLineEdit" name="snowSizeTextbox">
         <property name="sizePolicy">
@@ -69,7 +88,7 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>40</width>
+          <width>55</width>
           <height>0</height>
          </size>
         </property>
@@ -86,21 +105,8 @@
       </item>
       <item row="0" column="2">
        <widget class="QSlider" name="snowSizeSlider">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>0</height>
-         </size>
-        </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="snowSizeLabel">
-        <property name="text">
-         <string>Snow Size</string>
         </property>
        </widget>
       </item>
@@ -128,6 +134,19 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="snowRateLabel">
+        <property name="font">
+         <font>
+          <family>Almonte Snow</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Snow Rate</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="3">
        <widget class="QLineEdit" name="snowRateTextbox">
         <property name="sizePolicy">
@@ -138,7 +157,7 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>40</width>
+          <width>55</width>
           <height>0</height>
          </size>
         </property>
@@ -153,23 +172,10 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
+      <item row="0" column="1">
        <widget class="QSlider" name="snowRateSlider">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>0</height>
-         </size>
-        </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="snowRateLabel">
-        <property name="text">
-         <string>Snow Rate</string>
         </property>
        </widget>
       </item>
