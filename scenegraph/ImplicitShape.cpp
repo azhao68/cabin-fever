@@ -1,5 +1,6 @@
 #include "ImplicitShape.h"
 #include <iostream>
+#include <algorithm>
 #include "shapes/Cube.h"
 
 ImplicitShape::ImplicitShape()
@@ -21,8 +22,8 @@ float ImplicitShape::cube(glm::vec3 eye, glm::vec3 d) {
         if (tVals[i] == -1.f) {
             continue;
         } else {
-            if (abs(eye.x + tVals[i]*d.x) < 0.5f + m_epsilon &&
-                    abs(eye.y + tVals[i]*d.y) < 0.5f + m_epsilon && abs(eye.z + tVals[i]*d.z) < 0.5f + m_epsilon)
+            if (fabsf(eye.x + tVals[i]*d.x) < 0.5f + m_epsilon &&
+                    fabsf(eye.y + tVals[i]*d.y) < 0.5f + m_epsilon && fabsf(eye.z + tVals[i]*d.z) < 0.5f + m_epsilon)
                 valid.push_back(tVals[i]);
         }
     }
@@ -39,9 +40,9 @@ float ImplicitShape::cubeHelper(std::vector<float> face) {
 
     // check that the other points are between -0.5 and 0.5
     float acceptedRange = 0.5f + m_epsilon;
-    if ((abs(face[2] + t1*face[3]) <= acceptedRange) && (abs(face[4] + t1*face[5]) <= acceptedRange)) {
+    if ((fabsf(face[2] + t1*face[3]) <= acceptedRange) && (fabsf(face[4] + t1*face[5]) <= acceptedRange)) {
         if (t1 > 0) { valid.push_back(t1); } // add t1 if it is valid
-    } if ((abs(face[2] + t2*face[3]) <= acceptedRange) && (abs(face[4] + t2*face[5]) <= acceptedRange)) {
+    } if ((fabsf(face[2] + t2*face[3]) <= acceptedRange) && (fabsf(face[4] + t2*face[5]) <= acceptedRange)) {
         if (t2 > 0) { valid.push_back(t2); } // add t2 if it is valid
     }
 
@@ -69,8 +70,8 @@ float ImplicitShape::cone(glm::vec3 eye, glm::vec3 d) {
     t3 = (-0.5f - eye.y) / d.y;
 
     // validate
-    if (abs(eye.y + (t1 * d.y)) > 0.5f + m_epsilon) { t1 = -1.f; }
-    if (abs(eye.y + (t2 * d.y)) > 0.5f + m_epsilon) { t2 = -1.f; }
+    if (fabsf(eye.y + (t1 * d.y)) > 0.5f + m_epsilon) { t1 = -1.f; }
+    if (fabsf(eye.y + (t2 * d.y)) > 0.5f + m_epsilon) { t2 = -1.f; }
     if (pow(eye.x + (d.x * t3), 2) + pow(eye.z + (d.z * t3), 2) > 0.25f + m_epsilon) { t3 = -1.f; }
     for (float t : {t1, t2, t3}) {
         if (t > 0) {
@@ -104,8 +105,8 @@ float ImplicitShape::cylinder(glm::vec3 eye, glm::vec3 d) {
     t4 = (-0.5f - eye.y) / d.y;
 
     // validate
-    if (abs(eye.y + (t1 * d.y)) > 0.5f) { t1 = -1.f; }
-    if (abs(eye.y + (t2 * d.y)) > 0.5f) { t2 = -1.f; }
+    if (fabsf(eye.y + (t1 * d.y)) > 0.5f) { t1 = -1.f; }
+    if (fabsf(eye.y + (t2 * d.y)) > 0.5f) { t2 = -1.f; }
     if (pow(eye.x + (d.x * t3), 2) + pow(eye.z + (d.z * t3), 2) > 0.25f) { t3 = -1.f; }
     if (pow(eye.x + (d.x * t4), 2) + pow(eye.z + (d.z * t4), 2) > 0.25f) { t4 = -1.f; }
     for (float t : {t1, t2, t3, t4}) {
@@ -141,13 +142,13 @@ float ImplicitShape::sphere(glm::vec3 eye, glm::vec3 d) {
 glm::vec3 ImplicitShape::getNormal(glm::vec3 point, int type) {
     switch (type) {
         case 0: // cube
-            if (abs(point.y - 0.5f) < m_epsilon) {
+            if (fabsf(point.y - 0.5f) < m_epsilon) {
                 return {0.f, 1.f, 0.f};
-            } else if (abs(point.y + 0.5f) < m_epsilon) {
+            } else if (fabsf(point.y + 0.5f) < m_epsilon) {
                 return {0.f, -1.f, 0.f};
-            } else if (abs(point.x - 0.5f) < m_epsilon) {
+            } else if (fabsf(point.x - 0.5f) < m_epsilon) {
                 return {1.f, 0.f, 0.f};
-            } else if (abs(point.x + 0.5f) < m_epsilon) {
+            } else if (fabsf(point.x + 0.5f) < m_epsilon) {
                 return {-1.f, 0.f, 0.f};
             } else if (point.z == 0.5f) {
                 return {0.f, 0.f, 1.f};
@@ -156,7 +157,7 @@ glm::vec3 ImplicitShape::getNormal(glm::vec3 point, int type) {
             }
             break;
         case 1: {// cone
-            if (abs(point.y + 0.5f) < m_epsilon) {
+            if (fabsf(point.y + 0.5f) < m_epsilon) {
                 return {0.f, -1.f, 0.f};
             }
             glm::vec2 pxz = glm::normalize(point.xz());
@@ -164,9 +165,9 @@ glm::vec3 ImplicitShape::getNormal(glm::vec3 point, int type) {
             break;
     }
         case 2: // cylinder
-            if (abs(point.y + 0.5f) < m_epsilon) {
+            if (fabsf(point.y + 0.5f) < m_epsilon) {
                 return {0.f, -1.f, 0.f};
-            } if (abs(point.y - 0.5f) < m_epsilon) {
+            } if (fabsf(point.y - 0.5f) < m_epsilon) {
                 return {0.f, 1.f, 0.f};
             }
             return {point.x, 0.f, point.z};
