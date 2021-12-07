@@ -7,8 +7,6 @@
 
 #include <memory>
 #include <vector>
-#include <list>
-#include <map>
 
 /**
  *
@@ -40,7 +38,6 @@ protected:
      * look at ExampleShape.cpp for it's demonstrated usage
      */
     void initializeOpenGLShapeProperties();
-    virtual void validateParams() = 0;
     std::vector<GLfloat> m_vertexData;
     std::unique_ptr<CS123::GL::VAO> m_VAO;
 };
