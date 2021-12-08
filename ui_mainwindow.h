@@ -27,6 +27,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QWidget *canvas; // canvas
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     View *view;

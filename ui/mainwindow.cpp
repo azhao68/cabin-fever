@@ -11,16 +11,21 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    m_ui(new Ui::MainWindow)
 {
     settings.loadSettingsOrDefaults();
-    QGLFormat qglFormat;
-    qglFormat.setVersion(4, 3);
-    qglFormat.setProfile(QGLFormat::CoreProfile);
-    qglFormat.setSampleBuffers(true);
-    ui->setupUi(this);
-    m_canvas3D = new SupportCanvas3D(qglFormat, this);
+    m_ui->setupUi(this);
     QSettings qtSettings("cabin-fever", "cabin-fever");
+
+    // phong widget
+    QGridLayout *gridLayout = new QGridLayout(m_ui->canvas);
+
+    QGLFormat qglFormat;
+    qglFormat.setVersion(4,0);
+    qglFormat.setProfile(QGLFormat::CoreProfile);
+    m_glWidget = new GLWidget(qglFormat, this);
+    gridLayout->addWidget(m_glWidget, 0, 1);
+
     dataBind();
 }
 
@@ -32,10 +37,9 @@ void MainWindow::dataBind() {
     assert(connect(_b, SIGNAL(dataChanged()), this, SLOT(settingsChanged()))); \
 }
     BIND(FloatBinding::bindSliderAndTextbox(
-        ui->snowRateSlider, ui->snowRateTextbox, settings.snowRate, 0.f, 50.f))
+        m_ui->snowRateSlider, m_ui->snowRateTextbox, settings.snowRate, 0.f, 50.f))
     BIND(FloatBinding::bindSliderAndTextbox(
-        ui->snowSizeSlider, ui->snowSizeTextbox, settings.snowSize, 0.f, 50.f))
-//    BIND(BoolBinding::bind(ui->brushAlphaBlendingCheckbox, settings.fixAlphaBlending))
+        m_ui->snowSizeSlider, m_ui->snowSizeTextbox, settings.snowSize, 0.f, 50.f))
 
 #undef BIND
 
@@ -47,7 +51,8 @@ MainWindow::~MainWindow()
 {
     foreach (DataBinding *b, m_bindings)
         delete b;
-    delete ui;
+    delete m_ui;
+    delete m_glWidget;
 }
 
 void MainWindow::settingsChanged() {

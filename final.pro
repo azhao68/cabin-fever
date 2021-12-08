@@ -22,23 +22,13 @@ win32 {
 }
 
 SOURCES += ui/mainwindow.cpp \
+    glwidget.cpp \
     main.cpp \
     glew-1.10.0/src/glew.c \
-    ui/SupportCanvas3D.cpp \
     ui/view.cpp \
     ui/viewformat.cpp \
     ui/Databinding.cpp \
     ui/Settings.cpp \
-    scenegraph/ImplicitShape.cpp \
-    scenegraph/OpenGLScene.cpp \
-    scenegraph/Scene.cpp \
-    scenegraph/SceneviewScene.cpp \
-    shapes/CircleBase.cpp \
-    shapes/Cone.cpp \
-    shapes/Cube.cpp \
-    shapes/Cylinder.cpp \
-    shapes/OpenGLShape.cpp \
-    shapes/Sphere.cpp \
     lib/RGBA.cpp \
     lib/ResourceLoader.cpp \
     gl/shaders/Shader.cpp \
@@ -58,24 +48,13 @@ SOURCES += ui/mainwindow.cpp \
     gl/util/FullScreenQuad.cpp
 
 HEADERS += ui/mainwindow.h \
-    ui/SupportCanvas3D.h \
+    glwidget.h \
     ui_mainwindow.h \
     glew-1.10.0/include/GL/glew.h \
     ui/view.h \
     ui/viewformat.h \
     ui/Databinding.h \
     ui/Settings.h \
-    scenegraph/ImplicitShape.h \
-    scenegraph/OpenGLScene.h \
-    scenegraph/Scene.h \
-    scenegraph/SceneviewScene.h \
-    scenegraph/Scene.h \
-    shapes/CircleBase.h \
-    shapes/Cone.h \
-    shapes/Cube.h \
-    shapes/Cylinder.h \
-    shapes/OpenGLShape.h \
-    shapes/Sphere.h \
     gl/shaders/Shader.h \
     gl/GLDebug.h \
     gl/shaders/ShaderAttribLocations.h \
